@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/22b1f535fe.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Sign up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" 
+  rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+ 
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form action="" onsubmit="return validation()">
+      <div class="box">
+        <i class="fas fa-envelope"></i>
+           <input type="text" name="Name" id="Name" placeholder="Enter your Name">
+           <span id="usererror"> </span>
+      </div>
+      <div class="box">
+          <i class="fas fa-sms"></i>
+           <input type="text" name="Phone no." id="Phone no." placeholder="Enter your Phone no.">
+           <span id="phoneerror"> </span>
+      </div>
+      <div class="box">
+          <i class="fas fa-envelope"></i>
+           <input type="text" name="Email" id="Email" placeholder="Enter your Email">
+           <span id="emailerror"> </span>
+      </div>
+      <div class="box">
+          <i class="fas fa-key"></i>
+          <input type="password" name="password" id="password" placeholder="Enter your Password">
+          <span id="passworderror"> </span>
+        </div>
+      <div class="box">
+          <i class="fas fa-address-book"></i>
+           <input type="text" name="Address" id="Address" placeholder="Enter your Address">
+           <span id="addresserror"> </span>
+      </div>
+     
+      <div class="btn">
+       <button type="submit">Sign Up</button>
+      </div>
+      <div class="btn">
+          <button type="reset">Reset</button>
+         </div>
+    </div>
+    </form>
+    <script type="text/javascript">
+      function validation(){
+        var username = document.getElementById("Name").value;
+        var phoneno = document.getElementById("Phone no.").value;
+        var email = document.getElementById("Email").value;
+        var password = document.getElementById("password").value;
+        var address = document.getElementById("Address").value;
+        
+
+        var usercheck =/^[a-z A-Z]([A-Za-z0-9_]){4,15}$/ ;
+        var phonecheck =/^(\+91|0)?[6-9][0-9]{9}$/ ;
+        var emailcheck =/^[a-zA-Z]([0-9a-zA-Z]{0,10}[\_\.]){0,3}[0-9a-zA-Z]{1,10}@([0-9a-zA-Z]{2,6}\.){1,4}([a-zA-Z]){2,3}$/ ;
+        var passwordcheck =/(?=.{10,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\%\$\#\@\!\&\*\_\-])/ ;
+        
+        if(usercheck.test(username)){
+          document.getElementById("usererror").innerHTML = " ";
+        }
+        else{
+          document.getElementById("usererror").innerHTML = "** Username is invalid ";
+          return false;
+
+        }
+      
+        if(phonecheck.test(phoneno)){
+          document.getElementById("phoneerror").innerHTML = " ";
+        }
+        else{
+          document.getElementById("phoneerror").innerHTML = "** Phone no is invalid ";
+          return false;
+
+        }
+        if(emailcheck.test(email)){
+          document.getElementById("emailerror").innerHTML = " ";
+        }
+        else{
+          document.getElementById("emailerror").innerHTML = "**  Enter valid email ";
+          return false;
+
+        }
+        if(passwordcheck.test(password)){
+          document.getElementById("passworderror").innerHTML = " ";
+        }
+        else{
+          var pas =document.getElementById("passworderror");
+          pas.innerHTML ="** Enter the valid password" ;
+          return false;
+
+        }
+      }
+      
+    </script>
+    
+</body>
+</html>
